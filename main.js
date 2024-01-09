@@ -77,12 +77,6 @@ document.addEventListener(
   false
 );
 
-// Disable screen capture mobile
-document.addEventListener("touchstart", function (e) {
-  e.preventDefault();
-  alert("Screen Capture Disabled");
-});
-
 // Disable screen capture mobile by long press
 function init() {
   onLongPress(document.getElementById("targetDiv"));
