@@ -82,3 +82,26 @@ document.addEventListener("touchstart", function (e) {
   e.preventDefault();
   alert("Screen Capture Disabled");
 });
+
+// Disable screen capture mobile by long press
+function init() {
+  onLongPress(document.getElementById("targetDiv"));
+}
+
+function onLongPress(node) {
+  node.ontouchstart = nullEvent;
+  node.ontouchend = nullEvent;
+  node.ontouchcancel = nullEvent;
+  node.ontouchmove = nullEvent;
+}
+
+function nullEvent(event) {
+  var e = event || window.event;
+  e.preventDefault && e.preventDefault();
+  e.stopPropagation && e.stopPropagation();
+  e.cancelBubble = true;
+  e.returnValue = false;
+  return false;
+}
+
+document.addEventListener("DOMContentLoaded", init);
