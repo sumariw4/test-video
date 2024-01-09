@@ -55,8 +55,13 @@
     <h1 style="color: bisque;">
         Secure Video Player
     </h1>
-    <div style="margin: auto;">
-        <video id="secureVideoPlayer" controls width="750"></video>
+    <div style="position: relative; z-index: 50; width: 750px; height: 500px; margin: auto;">
+        <div style="position: absolute; z-index: 10; width: 750px; height: 500px; margin: auto;">
+            <video id="secureVideoPlayer" width="750" height="500" controls>
+            </video>
+        </div>
+        <div id="canvas" style="position: absolute; background-color: black; z-index: 5;  width: 750px; height: 500px;">
+        </div>
     </div>
     <script src="./main.js"></script>
 </body>

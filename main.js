@@ -15,11 +15,6 @@ function source() {
 
 document.addEventListener("DOMContentLoaded", source);
 
-// Disable Screen Capture
-document.addEventListener("securitypolicyviolation", function () {
-  console.log("gotpointercapture");
-});
-
 // Disable PrintScreen
 document.addEventListener("keydown", function (event) {
   if (event.key == "PrintScreen") {
@@ -61,11 +56,6 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
     alert("Inspect Element Disabled #C");
   }
-
-  if (event.ctrlKey && event.shiftKey && event.key == "S") {
-    event.preventDefault();
-    alert("Inspect Element Disabled #S");
-  }
 });
 
 document.addEventListener(
@@ -99,3 +89,52 @@ function nullEvent(event) {
 }
 
 document.addEventListener("DOMContentLoaded", init);
+
+// document.addEventListener("keydown", function (event) {
+//   if (event.key == "Meta") {
+//     event.preventDefault();
+//     document.getElementById("keydown", function (event) {
+//       if (event.shiftKey && event.key == "S") {
+//         event.preventDefault();
+//         alert("Inspect Element Disabled");
+//       }
+//     });
+//   }
+// });
+
+// let type = false;
+// window.addEventListener("keydown", (event) => {
+//   event.preventDefault();
+//   if (event.key == "Meta") {
+//     // Pause the video
+//     const video = document.getElementById("secureVideoPlayer");
+//     if (!type) {
+//       video.pause();
+//     } else {
+//       video.play();
+//     }
+
+//     type = !type;
+//     // Set Canvas to the video
+//   }
+// });
+
+// on focus
+
+document.addEventListener("keydown", function (event) {
+  event.preventDefault();
+  if (event.metaKey) {
+    // set canvas div id="canvas" set style="z-index: 9999"
+    const canvas = document.getElementById("canvas");
+    canvas.style.zIndex = "9999";
+  }
+});
+
+// document.addEventListener("keyup", function (event) {
+//   event.preventDefault();
+//   if (event.metaKey) {
+//     // set canvas div id="canvas" set style="z-index: 9999"
+//     const canvas = document.getElementById("canvas");
+//     canvas.style.zIndex = "0";
+//   }
+// });
